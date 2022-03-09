@@ -40,3 +40,15 @@ FROM `departments`;
 SELECT COUNT(`id`) as `n_of_teachers_w/out_phone`
 FROM `teachers`
 WHERE `phone` IS NULL;
+
+-- 9. Contare quanti iscritti ci sono stati ogni anno
+
+-- 10. Contare gli insegnanti che hanno l'ufficio nello stesso edificio
+SELECT COUNT(`id`) AS `teachers_per_office`, `office_address`
+FROM `teachers`
+GROUP BY `office_address`;
+
+-- 11. Contare la media dei voti di ogni appello d'esame
+SELECT ROUND(AVG(`vote`), 2) AS `avg_vote`, `exam_id` AS `exam_session`
+FROM `exam_student`
+GROUP BY `exam_id`;
