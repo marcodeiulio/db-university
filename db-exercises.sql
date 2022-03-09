@@ -26,3 +26,12 @@ SELECT *
 FROM `exams`
 WHERE date(`date`) = '2020-06-20'
 AND hour(`hour`) >= 14;
+
+-- 6. Selezionare tutti i corsi della magistrale
+SELECT *
+FROM `degrees`
+WHERE `name` LIKE '%magistrale%';
+
+-- 7. Da quanti dipartimenti è composta l'Università?
+SELECT COUNT(`id`) as `n_of_departments`
+FROM `departments`;
