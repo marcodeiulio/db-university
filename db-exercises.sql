@@ -35,3 +35,8 @@ WHERE `name` LIKE '%magistrale%';
 -- 7. Da quanti dipartimenti è composta l'Università?
 SELECT COUNT(`id`) as `n_of_departments`
 FROM `departments`;
+
+-- 8. Quanti sono gli insegnanti che non hanno un numero di telefono?
+SELECT COUNT(`id`) as `n_of_teachers_w/out_phone`
+FROM `teachers`
+WHERE `phone` IS NULL;
