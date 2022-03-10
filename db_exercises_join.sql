@@ -72,7 +72,7 @@ WHERE `departments`.`name` = 'Dipartimento di Matematica'
 ORDER BY `teachers`.`surname`, `teachers`.`name`;
 
 -- 7. Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
-SELECT `students`.`surname`, `students`.`name`, COUNT(`exams`.`course_id`) AS `exam_attempts`
+SELECT DISTINCT `students`.`surname`, `students`.`name`, `students`.`registration_number`, COUNT(`exams`.`course_id`) AS `exam_attempts`
 FROM `students`
 JOIN `exam_student`
 ON `students`.`id` = `exam_student`.`student_id`
@@ -80,6 +80,6 @@ JOIN `exams`
 ON `exams`.`id` = `exam_student`.`exam_id`
 JOIN `courses`
 ON `courses`.`id` = `exams`.`course_id`
+WHERE `exam_student`.`vote` >= 18
 GROUP BY `students`.`id`
--- HAVING `exam_student`.`vote` >= 18
 ORDER BY `students`.`surname`, `students`.`name`;
