@@ -68,7 +68,8 @@ JOIN `course_teacher`
 ON `courses`.`id` = `course_teacher`.`course_id`
 JOIN `teachers`
 ON `teachers`.`id` = `course_teacher`.`teacher_id`
-WHERE `departments`.`name` = 'Dipartimento di Matematica';
+WHERE `departments`.`name` = 'Dipartimento di Matematica'
+ORDER BY `teachers`.`surname`, `teachers`.`name`;
 
 -- 7. Selezionare per ogni studente quanti tentativi d’esame ha sostenuto per superare ciascuno dei suoi esami
 SELECT `students`.`surname`, `students`.`name`, COUNT(`exams`.`course_id`) AS `exam_attempts`
