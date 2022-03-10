@@ -21,9 +21,7 @@ JOIN `course_teacher`
 ON `teachers`.`id` = `course_teacher`.`teacher_id`
 JOIN `courses`
 ON `courses`.`id` = `course_teacher`.`course_id`
-WHERE `teachers`.`id` = 44
-AND `teachers`.`name` = 'Fulvio'
-AND `teachers`.`surname` = 'Amato';
+WHERE `teachers`.`id` = 44;
 
 -- 3. Selezionare tutti i corsi in cui insegna Fulvio Amato (id=44)
 -- Versione con solo nome del corso
